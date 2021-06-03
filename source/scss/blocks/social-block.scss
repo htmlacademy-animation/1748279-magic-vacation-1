@@ -1,10 +1,24 @@
 .social-block {
   position: relative;
 
-  &:hover {
+  &:hover, &:focus, &:active {
     .social-block__list {
       opacity: 1;
       pointer-events: auto;
+
+    }
+
+    .social-block__link {
+      opacity: 1;
+      transform: translateY(0);
+
+      &--insta {
+        transition-delay: 0.1s;
+      }
+
+      &--vk {
+        transition-delay: 0.2s;
+      }
     }
   }
 }
@@ -17,6 +31,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: all 0.3s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +50,8 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: all 0.3s;
+
   }
 
   svg {
@@ -68,6 +85,22 @@
     }
   }
 
+  &:focus {
+
+    .social-block & {
+
+      opacity: 1;
+    }
+
+    + .social-block__list {
+
+      .social-block__link {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
   &:active,
   &:active:focus {
     color: $c-light;
@@ -89,6 +122,7 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.3s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -168,6 +202,11 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: color 0.3s, opacity 0.3s, transform 0.3s;
+  opacity: 0;
+  transform: translateY(5px);
+
+
 
   @media (min-width: $stop-scaling) {
     width: 40px;

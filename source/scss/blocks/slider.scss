@@ -63,6 +63,30 @@
       }
     }
   }
+
+  @media (min-width: $mobile) {
+    .screen--story.active & {
+      &.swiper-slide-active, &.swiper-slide-next {
+        .slider__item-text {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    .screen--story.active & {
+      &.swiper-slide-active {
+        .slider__item-text {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+
 }
 
 .slider__item-title {
@@ -96,6 +120,9 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  transform: translateX(25px);
+  opacity: 0;
+  transition: all 0.2s ease-in-out 0.4s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;

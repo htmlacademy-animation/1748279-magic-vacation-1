@@ -6,6 +6,10 @@
   padding: 14.6rem 0 6rem;
   width: 100%;
 
+  .form__button {
+    margin-left: auto;
+  }
+
   @media (min-width: $stop-scaling) {
     padding: 146px 0 60px;
   }
@@ -20,6 +24,35 @@
 
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 5rem 0 1.5rem;
+  }
+
+
+  .field__wrapper {
+    margin-right: 3rem;
+    width: calc(100% - 21rem);
+    display: flex;
+    justify-content: flex-end;
+
+
+
+    @media (max-width: $tablet) {
+      //width: auto;
+      flex-grow: 1;
+    }
+
+    input {
+      width: 0;
+      margin-right: 0;
+      transition: width 0.2s ease-in-out, padding 0.1s linear 0.1s;
+      padding: 0;
+    }
+  }
+
+  .screen--game.active & {
+    .field__wrapper input {
+      width: 100%;
+      padding: 0 5.6rem;
+    }
   }
 }
 
