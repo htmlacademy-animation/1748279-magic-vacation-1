@@ -40,17 +40,24 @@
 
 .screen__footer {
   position: absolute;
-  bottom: 0;
+  //bottom: 0;
   left: 0;
   right: 0;
+  bottom: -30px;
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+  transition: bottom 0.3s cubic-bezier(0, 0.26, 1, 0.76);
+
+  .active & {
+    bottom: 0;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 0 3.6rem 0 0;
+    bottom: -3.5rem;
 
     &.screen__footer--full {
       width: 100%;
