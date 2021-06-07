@@ -97,7 +97,7 @@
   //animation: fadeIn 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   opacity: 0;
-  transform: translateY(15px);
+  transform: translateY(4rem);
 
   .screen--intro.active & {
     opacity: 1;
