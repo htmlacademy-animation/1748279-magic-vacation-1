@@ -22,3 +22,22 @@
     }
   }
 }
+
+.fill {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #5f458c;
+  z-index: 1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+
+  &.active {
+    transition: transform 0.4s linear;
+    transform: scaleY(1);
+  }
+
+}
