@@ -8,6 +8,7 @@ export default class FullPageScroll {
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.fillBlock = document.querySelector(`.fill`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -17,6 +18,23 @@ export default class FullPageScroll {
   init() {
     document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
+
+    this.menuElements.forEach((el) => {
+      el.addEventListener(`click`, (e) => {
+        if (el.href.split(`#`)[1] === `prizes`) {
+          e.preventDefault();
+          this.fillBlock.classList.add(`active`);
+          const activeItem = Array.from(this.menuElements).find((item) => item.dataset.href === 'prizes');
+          if (activeItem) {
+            this.menuElements.forEach((item) => item.classList.remove(`active`));
+            activeItem.classList.add(`active`);
+          }
+          setTimeout(() => {
+            window.location.href = el.href;
+          }, 600);
+        }
+      });
+    });
 
     this.onUrlHashChanged();
   }
@@ -52,10 +70,12 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
+
     this.screenElements.forEach((screen) => {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`active`);
     });
+    this.fillBlock.classList.remove(`active`);
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
