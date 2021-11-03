@@ -90,3 +90,19 @@
     }
   }
 }
+
+.screen--rules {
+  .disclaimer ul {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+    animation-fill-mode: both;
+  }
+
+  &.active .disclaimer ul {
+    opacity: 1;
+  }
+
+  .screen__disclaimer {
+    transform: translateY(0);
+  }
+}

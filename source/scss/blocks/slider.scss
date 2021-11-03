@@ -162,6 +162,11 @@
   width: 17rem;
   z-index: 1;
 
+  .active & {
+    animation: showButton 0.4s ease-in-out 0.5s;
+    animation-fill-mode: both;
+  }
+
   @media (min-width: $stop-scaling) {
     bottom: 28px;
     width: 170px;
@@ -182,6 +187,28 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  animation-fill-mode: both;
+  animation: none;
+
+
+  &.slider__control--prev {
+    .active & {
+      animation: rotate-prev 0.4s ease-in-out 0.5s;
+      animation-fill-mode: both;
+    }
+  }
+
+  &.slider__control--next {
+    .active & {
+      animation: rotate-next 0.4s ease-in-out 0.5s;
+      animation-fill-mode: both;
+    }
+
+  }
+
+  .active & {
+
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -261,6 +288,12 @@
   font-size: 2.4rem;
   line-height: 4rem;
 
+
+  .active & {
+    animation: showButton 0.4s ease-in-out 0.5s;
+    animation-fill-mode: both;
+  }
+
   @media (min-width: $stop-scaling) {
     bottom: 28px;
     width: 90px;
@@ -301,5 +334,32 @@
       height: 0.4rem;
       background-color: $c-light;
     }
+  }
+}
+
+@keyframes showButton {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate-next {
+  from {
+    transform: translateX(4rem) rotate(90deg);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes rotate-prev {
+  from {
+    transform: translateX(-4rem) rotate(-90deg);
+  }
+  to {
+    transform: none;
   }
 }
