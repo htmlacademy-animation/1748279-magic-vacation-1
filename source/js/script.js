@@ -10,6 +10,9 @@ import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import AnimationText from './modules/animations';
 
+export const PAGE_TITLES = [`.animated-title`, `.intro__date`, `.slider__item-title`, `.prizes__title`, `.rules__title`, `.game__title`];
+
+
 // init modules
 mobileHeight();
 slider();
@@ -27,9 +30,9 @@ window.addEventListener(`load`, function () {
   document.body.classList.add(`ready`);
 });
 
-let titles = [`.animated-title`, `.intro__date`, `.slider__item-title`, `.prizes__title`, `.rules__title`, `.game__title`];
+// export const titles = [`.animated-title`, `.intro__date`, `.slider__item-title`, `.prizes__title`, `.rules__title`, `.game__title`];
 
-titles = titles.map((el) => {
+let titles = PAGE_TITLES.map((el) => {
   return new AnimationText(document.querySelector(el), 400);
 });
 
