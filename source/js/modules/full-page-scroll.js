@@ -1,4 +1,6 @@
 import throttle from 'lodash/throttle';
+import {PAGE_TITLES} from "../script";
+import AnimationText from "./animations";
 
 export default class FullPageScroll {
   constructor() {
@@ -80,6 +82,15 @@ export default class FullPageScroll {
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
     }, 100);
+
+    PAGE_TITLES.forEach((el) => {
+      let a = this.screenElements[this.activeScreen].querySelector(el);
+      if (a) {
+        let e = new AnimationText(document.querySelector(el), 400);
+        e.init();
+      }
+    });
+
   }
 
   changeActiveMenuItem() {
