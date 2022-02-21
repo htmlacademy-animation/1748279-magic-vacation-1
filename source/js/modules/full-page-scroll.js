@@ -90,7 +90,6 @@ export default class FullPageScroll {
         e.init();
       }
     });
-
   }
 
   changeActiveMenuItem() {

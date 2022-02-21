@@ -30,8 +30,6 @@ window.addEventListener(`load`, function () {
   document.body.classList.add(`ready`);
 });
 
-// export const titles = [`.animated-title`, `.intro__date`, `.slider__item-title`, `.prizes__title`, `.rules__title`, `.game__title`];
-
 let titles = PAGE_TITLES.map((el) => {
   return new AnimationText(document.querySelector(el), 400);
 });
